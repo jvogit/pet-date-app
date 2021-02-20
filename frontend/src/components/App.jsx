@@ -6,6 +6,7 @@ import { BaseProvider, LightTheme, DarkTheme, } from "baseui";
 import Home from "pages/Home";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
+import Swipe from "pages/Swipe";
 import HeaderNavBar from "components/navbar/HeaderNavBar";
 import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
@@ -37,6 +38,7 @@ export const App = ({ history }) => {
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={Login} />
               <Route path="/signup" exact component={Signup} />
+              <Route path="/swipe" exact component={Swipe} />
             </Switch>
             <Footer />
           </Router>
