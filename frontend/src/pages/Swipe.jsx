@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import TinderCard from 'react-tinder-card';
 import { Button } from 'baseui/button';
-import CenterLayout from 'components/layouts/CenterLayout';
-import "./App.css"
 
 const db = [
   {

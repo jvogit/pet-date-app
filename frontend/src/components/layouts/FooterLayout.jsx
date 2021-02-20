@@ -11,7 +11,11 @@ const Footer = () => {
   return (
     <React.Fragment>
       <div style={{ flex: 1 }} />
-      <footer>
+      <footer
+        style={{
+          marginTop: "5rem"
+        }}
+      >
         <div
           style={{
             display: "flex",

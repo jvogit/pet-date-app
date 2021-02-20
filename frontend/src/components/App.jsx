@@ -10,6 +10,7 @@ import Swipe from "pages/Swipe";
 import HeaderNavBar from "components/navbar/HeaderNavBar";
 import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
+import "components/App.css";
 
 const engine = new Styletron();
 

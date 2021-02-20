@@ -16,7 +16,6 @@
     "date-fns": "^2.16.1",
     "geometry-interfaces": "^1.1.4",
     "history": "^4.10.1",
-    "nuka-carousel": "^4.7.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
