@@ -4,7 +4,7 @@ export const getRandomDogs = () => {
   return axios.get("/api/public/dogs/feed");
 };
 
-export const getDogsNear = (zipcode, miles) => {
+export const getDogsNear = ({ zipcode, miles }) => {
   return getWithToken("/api/dogs/near", { zipcode, miles });
 };
 

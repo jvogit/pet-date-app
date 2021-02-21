@@ -3,6 +3,7 @@ import { H1, Label1, Label2, Paragraph1, } from "baseui/typography";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import DogDeck from "components/cards/DogDeck";
+import DogService from "services/DogService";
 
 export const Home = () => {
   const history = useHistory();
@@ -28,7 +29,7 @@ export const Home = () => {
           </div>
         </Cell>
         <Cell span={[4, 8, 6]}>
-          <DogDeck />
+          <DogDeck getDogItemsRequest={DogService.getRandomDogs}/>
         </Cell>
       </Grid>
     </section>

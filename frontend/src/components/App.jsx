@@ -7,10 +7,12 @@ import Home from "pages/Home";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
 import Swipe from "pages/Swipe";
+import DogSwiper from "pages/DogSwiper";
 import HeaderNavBar from "components/navbar/HeaderNavBar";
 import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
 import "components/App.css";
+import AuthorizedRoute from "./routes/AuthorizedRoute";
 
 const engine = new Styletron();
 
@@ -40,6 +42,7 @@ export const App = ({ history }) => {
               <Route path="/login" exact component={Login} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/swipe" exact component={Swipe} />
+              <AuthorizedRoute path="/dogswiper" exact component={DogSwiper} />
             </Switch>
             <Footer />
           </Router>

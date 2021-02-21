@@ -20,7 +20,7 @@ function* login(history, { username, password }) {
     yield put({ type: SENDING_REQUEST });
     let { user } = yield call(AuthService.login, username, password);
     yield put({ type: LOGIN_SUCCESS, user });
-    yield call(history.push, "/todos");
+    yield call(history.push, "/dogSwiper");
   } catch (error) {
     yield put({ type: LOGIN_FAILURE, error: error.response.data.message });
   }

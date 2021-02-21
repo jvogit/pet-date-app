@@ -2,28 +2,39 @@ import * as React from 'react';
 import DogCard from "components/cards/DogCard";
 import DogService from "services/DogService";
 
-const DogDeck = () => {
+const DogDeck = ({ getDogItemsRequest, args }) => {
   const [data, setData] = React.useState([]);
-  
+
   const queue = (old_data, new_data) => {
-    return [...old_data, ...new_data];
+    console.log([...new_data, ...old_data].map(item => item.attributes.name));
+    return [...new_data, ...old_data];
   };
 
   const pop = (old_data) => {
-    
-    old_data.pop();
-
-    return [...old_data];
+    console.log("Removing", old_data.length, "Now", old_data.length - 1);
+    console.log("Bye", old_data[old_data.length - 1].attributes.name);
+    return old_data.slice(0, -1);
   }
 
   React.useEffect(() => {
-    DogService.getRandomDogs()
-    .then((response) => {
-      let new_data = DogService.toDogData(response);
-      console.log(new_data[0]);
-      setData(old_data => queue(old_data, new_data));
-    })
+    getDogItemsRequest(args)
+      .then((response) => {
+        let new_data = DogService.toDogData(response);
+        setData(old_data => queue(old_data, new_data));
+      })
   }, []);
+
+  React.useEffect(() => {
+    console.log("Length effect", data.length);
+    if (data.length === 10) {
+      console.log("Fetching new content!");
+      getDogItemsRequest(args)
+        .then((response) => {
+          let new_data = DogService.toDogData(response);
+          setData(old_data => queue(old_data, new_data));
+        })
+    }
+  }, [data]);
 
   return (
     <div
@@ -35,9 +46,15 @@ const DogDeck = () => {
     >
       {
         data
-        .map((item, index) => (
-          <DogCard key={item.id} dog={item} />
-        ))
+          .map((item, index) => (
+            <DogCard 
+              key={item.id} 
+              dog={item}
+              onSwiped={() => {
+                setData(old_data => pop(old_data));
+              }}
+            />
+          ))
       }
     </div>
   );
