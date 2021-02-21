@@ -47,11 +47,17 @@ const Swiper = () => {
                 <H1>Swiper</H1>
                 <Label1>Find adoptable pets near you!</Label1>
                 <Select
+                  required
                   options={[
-                    { value: "dogs" },
+                    { value: "alpacas" },
+                    { value: "birds"},
                     { value: "cats" },
-                    { value: "hamsters" },
-                    { value: "alpacas" }
+                    { value: "dogs" },
+                    { value: "guineapigs"},
+                    { value: "hamsters"},
+                    { value: "rabbits"},
+                    { value: "snakes"},
+                    { value: "turtles"}
                   ]}
                   labelKey="value"
                   valueKey="value"
@@ -60,6 +66,7 @@ const Swiper = () => {
                   value={animals}
                 />
                 <Input
+                  required
                   placeholder="Zip code"
                   onChange={({ target }) => {
                     let value = target.value;
@@ -67,6 +74,7 @@ const Swiper = () => {
                   }}
                 />
                 <Select
+                  required
                   options={[
                     { value: 50 },
                     { value: 100 },

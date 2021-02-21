@@ -14,6 +14,8 @@ import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
 import "components/App.css";
 import AuthorizedRoute from "./routes/AuthorizedRoute";
+import UploadPage from "pages/UploadPage";
+import Pet from "pages/Pet";
 
 const engine = new Styletron();
 
@@ -45,6 +47,8 @@ export const App = ({ history }) => {
               <Route path="/swipe" exact component={Swipe} />
               <AuthorizedRoute path="/swiper" exact component={Swiper} />
               <Route path="/adoption" exact component={Adoption} />
+              <Route path="/upload" exact component={UploadPage} />
+              <Route path="/pet/:id" component={Pet} />
             </Switch>
             <Footer />
           </Router>

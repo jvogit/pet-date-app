@@ -1,7 +1,7 @@
 package com.github.petdate.petdateapp.service;
 
 import java.util.Collections;
-
+import java.util.Optional;
 import javax.transaction.Transactional;
 import javax.validation.constraints.Email;
 
@@ -36,6 +36,10 @@ public class UserService {
     private PasswordEncoder pwdEncoder;
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
+    
+    public Optional<User> findUserById(Long id) {
+        return userRepository.findById(id);
+    }
 
     public User createUser(SignupPayload payload) {
         User user = new User(payload.getUsername(), payload.getEmail(),

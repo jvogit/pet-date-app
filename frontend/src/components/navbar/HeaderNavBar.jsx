@@ -120,7 +120,7 @@ const HeaderNavBar = ({ user, logout, toggleTheme }) => {
           <NavButton
             to="/swiper"
           >
-            Dog Swiper
+            Animal Swiper
           </NavButton>
         </StyledNavigationItem>
         <StyledNavigationItem>

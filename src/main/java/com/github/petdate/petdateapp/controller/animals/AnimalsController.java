@@ -1,4 +1,4 @@
-package com.github.petdate.petdateapp.controller.dogs;
+package com.github.petdate.petdateapp.controller.animals;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
