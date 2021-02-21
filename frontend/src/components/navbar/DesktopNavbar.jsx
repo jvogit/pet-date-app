@@ -32,7 +32,15 @@ export const LoginButton = () => {
 
 export const ProfileButton = ({ user, onLogout }) => {
 
+  const history = useHistory();
+
   const ITEMS = [
+    {
+      label: "My Pets",
+      action: () => {
+        history.push("/user/pets");
+      },
+    },
     {
       label: "Logout",
       action: () => {
@@ -90,7 +98,7 @@ const NavButton = (props) => {
   );
 };
 
-const HeaderNavBar = ({ user, logout, toggleTheme }) => {
+const DesktopNavbar = ({ user, logout, toggleTheme }) => {
 
   return (
     <HeaderNavigation
@@ -121,6 +129,11 @@ const HeaderNavBar = ({ user, logout, toggleTheme }) => {
             to="/swiper"
           >
             Animal Swiper
+          </NavButton>
+          <NavButton
+            to="/dateswiper"
+          >
+            Date Swiper
           </NavButton>
         </StyledNavigationItem>
         <StyledNavigationItem>
@@ -155,4 +168,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps, 
   mapDispatchToProps
-)(HeaderNavBar);
+)(DesktopNavbar);

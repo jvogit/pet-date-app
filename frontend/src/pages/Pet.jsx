@@ -24,7 +24,8 @@ const Pet = () => {
   return (
     <section
       style={{
-        marginTop: "5vh"
+        marginTop: "5vh",
+        minHeight: "650px",
       }}
     >
       <div
@@ -49,6 +50,7 @@ const Pet = () => {
               >
                 <PetCard 
                   pet={pet} 
+                  disabled={true}
                 />
               </div>
             )

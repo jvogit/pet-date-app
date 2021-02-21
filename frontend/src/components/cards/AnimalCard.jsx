@@ -50,6 +50,7 @@ const AnimalCard = ({ dog, onSwiped }) => {
                 kind={KIND.secondary}
                 shape={SHAPE.circle}
                 onClick={() => setFlip(true)}
+                onTouchStart={() => setFlip(true)}
               >
                 <ChevronDown
                   size={64}
@@ -107,6 +108,7 @@ const AnimalCard = ({ dog, onSwiped }) => {
               kind={KIND.secondary}
               shape={SHAPE.circle}
               onClick={() => setFlip(false)}
+              onTouchStart={() => setFlip(false)}
             >
               <ChevronDown
                 size={64}

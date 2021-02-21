@@ -7,15 +7,17 @@ import Home from "pages/Home";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
 import Swipe from "pages/Swipe";
-import Swiper from "pages/Swiper";
+import AdoptableSwiper from "pages/AdoptableSwiper";
+import DateSwiper from "pages/DateSwiper";
 import Adoption from "pages/Adoption";
-import HeaderNavBar from "components/navbar/HeaderNavBar";
+import AppNavbar from "components/navbar/AppNavbar";
 import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
 import "components/App.css";
 import AuthorizedRoute from "./routes/AuthorizedRoute";
 import UploadPage from "pages/UploadPage";
 import Pet from "pages/Pet";
+import UserPets from "pages/UserPets";
 
 const engine = new Styletron();
 
@@ -39,15 +41,17 @@ export const App = ({ history }) => {
           }}
         >
           <Router history={history}>
-            <HeaderNavBar toggleTheme={() => setTheme(theme === DarkTheme ? LightTheme : DarkTheme)} />
+            <AppNavbar toggleTheme={() => setTheme(theme === DarkTheme ? LightTheme : DarkTheme)} />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/login" exact component={Login} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/swipe" exact component={Swipe} />
-              <AuthorizedRoute path="/swiper" exact component={Swiper} />
+              <AuthorizedRoute path="/swiper" exact component={AdoptableSwiper} />
+              <AuthorizedRoute path="/dateswiper" exact component={DateSwiper} />
+              <AuthorizedRoute path="/user/pets" exact component={UserPets} />
               <Route path="/adoption" exact component={Adoption} />
-              <Route path="/upload" exact component={UploadPage} />
+              <AuthorizedRoute path="/upload" exact component={UploadPage} />
               <Route path="/pet/:id" component={Pet} />
             </Switch>
             <Footer />

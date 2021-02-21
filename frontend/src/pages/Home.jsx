@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <section
       style={{
-        paddingTop: "10vh"
+        paddingTop: "5vh"
       }}
     >
       <Grid>

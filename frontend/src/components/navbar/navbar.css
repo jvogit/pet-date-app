@@ -1,0 +1,14 @@
+.desktop {
+  display: none;
+}
+.mobile {
+  display: block;
+}
+@media (min-width: 44em) {
+  .desktop {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}

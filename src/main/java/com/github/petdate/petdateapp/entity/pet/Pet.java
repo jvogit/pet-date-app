@@ -37,10 +37,10 @@ public class Pet extends DateAudit {
     
     private Integer swipes = 0;
     
-    private Long user_id;
+    private Long userId;
     
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
     @JsonManagedReference
     private User user;
     

@@ -6,16 +6,16 @@ import * as React from 'react';
 import ReactCardFlip from 'react-card-flip';
 import TinderCard from 'react-tinder-card';
 
-const PetCard = ({ pet, onSwiped }) => {
-
+const PetCard = ({ pet, onSwiped, onSwipe, disabled = false }) => {
   const [flip, setFlip] = React.useState(false);
   const [css, theme] = useStyletron();
+
   return (
     <TinderCard
       className="swipe"
       onCardLeftScreen={onSwiped}
-      onSwipe={() => console.log("Swipe!!")}
-      preventSwipe={["left", "right", "up", "down"]}
+      onSwipe={onSwipe}
+      preventSwipe={disabled ? ["left", "right", "up", "down"] : ["up", "down"]}
     >
       <ReactCardFlip isFlipped={flip} >
         <div
@@ -50,6 +50,7 @@ const PetCard = ({ pet, onSwiped }) => {
                 kind={KIND.secondary}
                 shape={SHAPE.circle}
                 onClick={() => setFlip(true)}
+                onTouchStart={() => setFlip(true)}
               >
                 <ChevronDown
                   size={64}
@@ -89,9 +90,9 @@ const PetCard = ({ pet, onSwiped }) => {
             <LabelMedium>
               {pet.swipes}
             </LabelMedium>
-            <H2>Contact</H2>
+            <H2>Pet Owner</H2>
             <ParagraphLarge>
-              :)
+              {pet.user.username}
             </ParagraphLarge>
           </div>
           <div
@@ -101,6 +102,7 @@ const PetCard = ({ pet, onSwiped }) => {
               kind={KIND.secondary}
               shape={SHAPE.circle}
               onClick={() => setFlip(false)}
+              onTouchStart={() => setFlip(false)}
             >
               <ChevronDown
                 size={64}
