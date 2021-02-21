@@ -7,7 +7,8 @@ import Home from "pages/Home";
 import Login from "pages/Login";
 import Signup from "pages/Signup";
 import Swipe from "pages/Swipe";
-import DogSwiper from "pages/DogSwiper";
+import Swiper from "pages/Swiper";
+import Adoption from "pages/Adoption";
 import HeaderNavBar from "components/navbar/HeaderNavBar";
 import { DARK_THEME } from "utils/appConsts";
 import Footer from "./layouts/FooterLayout";
@@ -42,7 +43,8 @@ export const App = ({ history }) => {
               <Route path="/login" exact component={Login} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/swipe" exact component={Swipe} />
-              <AuthorizedRoute path="/dogswiper" exact component={DogSwiper} />
+              <AuthorizedRoute path="/swiper" exact component={Swiper} />
+              <Route path="/adoption" exact component={Adoption} />
             </Switch>
             <Footer />
           </Router>

@@ -1,20 +1,21 @@
 import axios, { getWithToken } from "utils/Request";
 
-export const getRandomDogs = () => {
-  return axios.get("/api/public/dogs/feed");
+export const getRandomAnimals = () => {
+  return axios.get("/api/public/animals/feed");
 };
 
-export const getDogsNear = ({ zipcode, miles }) => {
-  return getWithToken("/api/dogs/near", { zipcode, miles });
+export const getNear = ({animal,  zipcode, miles }) => {
+  return getWithToken(`/api/${animal}/near`, { zipcode, miles });
 };
 
-export const toDogData = (response) => {
+export const toAnimalData = (response) => {
+  if (!response.data.data) return [];
   return response.data.data
-  .map((item) => toDogItem(item, response.data.included))
+  .map((item) => toAnimalItem(item, response.data.included))
   .filter((item) => item.pictures.length !== 0);
 }
 
-export const toDogItem = (dog_item, included) => {
+export const toAnimalItem = (dog_item, included) => {
   let dog = {
     id: dog_item.id,
     attributes: dog_item.attributes,
@@ -34,11 +35,11 @@ export const toDogItem = (dog_item, included) => {
   return dog;
 }
 
-const DogService = {
-  getRandomDogs,
-  getDogsNear,
-  toDogData,
-  toDogItem,
+const AnimalService = {
+  getRandomAnimals,
+  getNear,
+  toAnimalData,
+  toAnimalItem,
 }
 
-export default DogService;
+export default AnimalService;

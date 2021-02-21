@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link, } from "react-router-dom";
+import { Link, useHistory, } from "react-router-dom";
 import {
   HeaderNavigation,
   StyledNavigationList,
@@ -76,6 +76,20 @@ export const ProfileButton = ({ user, onLogout }) => {
   );
 }
 
+const NavButton = (props) => {
+  const history = useHistory();
+
+  return (
+    <Button
+      {...props}
+      kind={KIND.minimal}
+      onClick={() => history.push(props.to)}
+    >
+      {props.children}
+    </Button>
+  );
+};
+
 const HeaderNavBar = ({ user, logout, toggleTheme }) => {
 
   return (
@@ -97,6 +111,18 @@ const HeaderNavBar = ({ user, logout, toggleTheme }) => {
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.center} />
       <StyledNavigationList $align={ALIGN.right}>
+        <StyledNavigationItem>
+          <NavButton
+            to="/adoption"
+          >
+            How to Adopt?
+          </NavButton>
+          <NavButton
+            to="/swiper"
+          >
+            Dog Swiper
+          </NavButton>
+        </StyledNavigationItem>
         <StyledNavigationItem>
           <Button
             kind={KIND.minimal}

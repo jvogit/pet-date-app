@@ -2,8 +2,8 @@ import { Cell, Grid } from "baseui/layout-grid";
 import { H1, Label1, Label2, Paragraph1, } from "baseui/typography";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import DogDeck from "components/cards/DogDeck";
-import DogService from "services/DogService";
+import AnimalDeck from "components/cards/AnimalDeck";
+import AnimalService from "services/AnimalService";
 
 export const Home = () => {
   const history = useHistory();
@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <section
       style={{
-        paddingTop: "5vw"
+        paddingTop: "10vh"
       }}
     >
       <Grid>
@@ -29,7 +29,7 @@ export const Home = () => {
           </div>
         </Cell>
         <Cell span={[4, 8, 6]}>
-          <DogDeck getDogItemsRequest={DogService.getRandomDogs}/>
+          <AnimalDeck getAnimalData={AnimalService.getRandomAnimals}/>
         </Cell>
       </Grid>
     </section>

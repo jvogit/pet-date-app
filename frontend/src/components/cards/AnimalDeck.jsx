@@ -1,8 +1,8 @@
 import * as React from 'react';
-import DogCard from "components/cards/DogCard";
-import DogService from "services/DogService";
+import DogCard from "components/cards/AnimalCard";
+import DogService from "services/AnimalService";
 
-const DogDeck = ({ getDogItemsRequest, args }) => {
+const AnimalDeck = ({ getAnimalData, args }) => {
   const [data, setData] = React.useState([]);
 
   const queue = (old_data, new_data) => {
@@ -17,9 +17,9 @@ const DogDeck = ({ getDogItemsRequest, args }) => {
   }
 
   React.useEffect(() => {
-    getDogItemsRequest(args)
+    getAnimalData(args)
       .then((response) => {
-        let new_data = DogService.toDogData(response);
+        let new_data = DogService.toAnimalData(response);
         setData(old_data => queue(old_data, new_data));
       })
   }, []);
@@ -28,9 +28,9 @@ const DogDeck = ({ getDogItemsRequest, args }) => {
     console.log("Length effect", data.length);
     if (data.length === 10) {
       console.log("Fetching new content!");
-      getDogItemsRequest(args)
+      getAnimalData(args)
         .then((response) => {
-          let new_data = DogService.toDogData(response);
+          let new_data = DogService.toAnimalData(response);
           setData(old_data => queue(old_data, new_data));
         })
     }
@@ -60,4 +60,4 @@ const DogDeck = ({ getDogItemsRequest, args }) => {
   );
 };
 
-export default DogDeck;
+export default AnimalDeck;
