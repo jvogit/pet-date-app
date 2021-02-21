@@ -27,7 +27,7 @@ export const Home = () => {
             <Label2>Built By: Justin Vo and Angelina Vu</Label2>
             <Paragraph1>
               Millions of dogs and cats enter shelters every year.
-              Thses pets need companions more than ever! We built this fun
+              These pets need companions more than ever! We built this fun
               app for all pet lovers! Swipe through photos of 
               adorable, adoptable pets
               in a "virtual" date. You can
